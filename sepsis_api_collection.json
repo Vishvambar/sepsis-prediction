@@ -1,0 +1,116 @@
+{
+    "info": {
+        "_postman_id": "sepsis-api-tests",
+        "name": "Clinivora Sepsis API",
+        "description": "Test collection for Sepsis Prediction API",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "Health Check",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "http://localhost:8000/",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8000",
+                    "path": [
+                        ""
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Scenario: Septic Shock (Hypotension Rule)",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json",
+                        "type": "text"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"HR\": 135,\n    \"SBP\": 75,\n    \"MAP\": 55,\n    \"O2Sat\": 90,\n    \"Temp\": 39.5,\n    \"Resp\": 32,\n    \"Lactate\": 3.0,\n    \"Age\": 60\n}"
+                },
+                "url": {
+                    "raw": "http://localhost:8000/predict",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8000",
+                    "path": [
+                        "predict"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Scenario: Healthy Athlete",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json",
+                        "type": "text"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"HR\": 50,\n    \"SBP\": 110,\n    \"MAP\": 80,\n    \"O2Sat\": 99,\n    \"Temp\": 36.5,\n    \"Resp\": 14,\n    \"Age\": 25\n}"
+                },
+                "url": {
+                    "raw": "http://localhost:8000/predict",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8000",
+                    "path": [
+                        "predict"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Scenario: Cold Sepsis",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json",
+                        "type": "text"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"HR\": 95,\n    \"SBP\": 100,\n    \"MAP\": 70,\n    \"O2Sat\": 92,\n    \"Temp\": 35.5,\n    \"Resp\": 22,\n    \"Age\": 85\n}"
+                },
+                "url": {
+                    "raw": "http://localhost:8000/predict",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8000",
+                    "path": [
+                        "predict"
+                    ]
+                }
+            },
+            "response": []
+        }
+    ]
+}

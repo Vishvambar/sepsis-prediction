@@ -1,0 +1,21 @@
+# Data
+Dataset.csv
+*.csv
+*.zip
+*.tar.gz
+
+# System/IDE
+.git
+.gitignore
+.vscode
+.idea
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+
+# Agent
+.gemini
+
+# Logs
+*.log
